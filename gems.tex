@@ -1,0 +1,120 @@
+%% * Packages
+
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[shorthand]{semantic}
+\usepackage{mathpartir}
+
+%% * Shorthands
+\mathlig{=<}{\leq}
+\mathlig{>=}{\geq}
+\mathlig{!=}{\neq}
+\mathlig{==}{\triangleq}
+\mathlig{===}{\equiv}
+\mathlig{|=}{\vDash}
+\mathlig{=|}{\Dashv}
+\mathlig{-|}{\dashv}
+\mathlig{|-}{\vdash}
+\mathlig{|->}{\mapsto}
+\mathlig{~>}{\rightsquigarrow}
+\mathlig{->>}{\twoheadrightarrow}
+\mathlig{<<}{\ll}
+\mathlig{<<<}{\lll}
+\mathlig{::=}{\Coloneqq}
+
+%% * Paper Structures
+\newcommand{\labelSection}[1]{\label{sec:#1}}
+\newcommand{\labelFigure}[1]{\label{fig:#1}}
+\newcommand{\labelTable}[1]{\label{tbl:#1}}
+\newcommand{\labelAppendix}[1]{\label{app:#1}}
+\newcommand{\labelDefinition}[1]{\label{def:#1}}
+\newcommand{\labelTheoremm}[1]{\label{thm:#1}}
+\newcommand{\labelLemma}[1]{\label{lem:#1}}
+\newcommand{\labelCorollary}[1]{\label{cor:#1}}
+\newcommand{\labelFormula}[1]{\label{frm:#1}}
+\newcommand{\Section}[1]{Section~\ref{#1}}
+\newcommand{\Figure}[1]{Figure~\ref{#1}}
+\newcommand{\Table}[1]{Table~\ref{#1}}
+\newcommand{\Appendix}[1]{Appendix~\ref{#1}}
+\newcommand{\Definition}[1]{Definition~\ref{#1}}
+\newcommand{\Theoremm}[1]{Theorem~\ref{#1}}
+\newcommand{\Lemma}[1]{Lemma~\ref{#1}}
+\newcommand{\Corollary}[1]{Corollary~\ref{#1}}
+\newcommand{\Formula}[1]{\ref{#1}}
+
+%% * Notations and Rules
+\newcommand{\TyCtx}{\Gamma}
+\newcommand{\RuntimeCtx}{\gamma}
+\newcommand{\SubCtx}{\Xi}
+\newcommand{\ConsCtx}{\Sigma}
+\newcommand{\TyVarA}{\alpha}
+\newcommand{\TyVarB}{\beta}
+\newcommand{\TyVarC}{\delta}
+
+\newcommand{\RuleName}[1]{\textsc{#1}}
+\newcommand{\TyRule}[1]{\RuleName{T-{#1}}}
+\newcommand{\InfRule}[1]{\RuleName{I-{#1}}}
+\newcommand{\SubRule}[1]{\RuleName{S-{#1}}}
+\newcommand{\ConsRule}[1]{\RuleName{C-{#1}}}
+\newcommand{\ConfRule}[1]{\RuleName{CF-{#1}}}
+\newcommand{\EvalRule}[1]{\RuleName{E-{#1}}}
+\newcommand{\WfRule}[1]{\RuleName{W-{#1}}}
+\newcommand{\XtrRule}[1]{\RuleName{X-{#1}}}
+
+% TODO: more
+
+%% * Abbreviation
+\newcommand{\aka}{a.k.a.\ }
+\newcommand{\ie}{i.e.,\ }
+\newcommand{\eg}{e.g.,\ }
+
+%% * Draft Commands
+\ifdefined \Draft
+\newcommand{\TODO}[1]{\noindent\textcolor{orange}{{TODO: #1}}}
+\newcommand{\TODOit}{\noindent\textcolor{orange}{{[TODO]}}}
+\newcommand{\FIXME}[1]{\noindent\textcolor{red}{{FIXME: #1}}}
+\newcommand{\FIXMEit}{\noindent\textcolor{red}{{[FIXME]}}}
+\newcommand{\Note}[1]{\textcolor{blue}{{Note: #1}}}
+\else
+\newcommand{\TODO}[1]{}
+\newcommand{\TODOit}{}
+\newcommand{\FIXME}[1]{}
+\newcommand{\FIXMEit}{}
+\newcommand{\Note}[1]{}
+\fi
+
+%% * Code Settings
+\lstset{%
+  language=ML,
+  basicstyle=\footnotesize,
+  xleftmargin=3mm,
+  moredelim=[is][\bfseries]{**}{**},
+  moredelim=[is][\underbar]{__}{__},
+  mathescape = true,
+  literate=
+    {->}{{$\rightarrow$}}2
+    {=>}{{$\Rightarrow$}}2
+    {•}{$\cdot$}1
+    {|}{$\vee$}1
+    {||}{|}1
+    {\&}{$\wedge$}1
+    {\&\&}{$\&$}1
+    {<:}{$\leq$}1
+    {:>}{$\geq$}1
+    {~}{$\neg$}1
+    {λ}{$\lambda$}1
+    {∀}{$\forall$}1
+    {forall}{$\forall$}1
+    {Top}{$\top$}1
+  ,
+  morekeywords={class, case, forall, rec, fun, throw, is, out, try, new},
+  deletekeywords={zero, succ, id, Int, Bool, head, tail, fst, snd, length, map, print, List, error, even, floor, open},
+  columns=fixed,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\footnotesize\ttfamily\bfseries,
+  commentstyle=\color{\commentColor}\ttfamily,
+  morecomment=[f][\color{\commentColor}\ttfamily][0]{//},
+  moredelim=**[is][\color{\codeEmphasisColor}]{^}{^},
+  moredelim=**[is][\color{\commentColor}]{‹}{›},
+  aboveskip=3pt,belowskip=3pt,lineskip=-0.2pt
+}

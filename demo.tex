@@ -1,12 +1,39 @@
-\documentclass[acmsmall]{acmart}
+\documentclass[acmsmall,screen,review,anonymous]{acmart}
+
+\newcommand*{\Draft}{}
+
+\input{gems}
 
 \AtBeginDocument{%
   \providecommand\BibTeX{{%
     Bib\TeX}}}
 
+\citestyle{acmauthoryear}
+
 \begin{document}
-\title{Demo}
+\title{Aias: My Research Template}
+
+\begin{abstract}
+  This project contains a LaTeX template and a Lean 4 template.
+  One can easily use them for PL research papers.
+  This document demonstrates the LaTeX template.
+  The Lean 4 template is not ready yet.
+\end{abstract}
+
 \maketitle
+
+\section{Quick Start}
+\labelSection{quick_start}
+
+\subsection{Use the Template}
+To use this template,
+insert an \emph{input} command with parameter \emph{gems}
+at the beginning of the document.
+
+\TODOit
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{bib}
 
 \end{document}
 \endinput
